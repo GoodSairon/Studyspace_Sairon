@@ -6,4 +6,5 @@ def how_much_words(string):
         return print(responce.json())
     return None
 
-how_much_words('hello world')
+while True:
+    how_much_words(input())
