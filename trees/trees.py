@@ -109,13 +109,12 @@ class Tree:
         if not fl_find:
             return None
 
-        if s.left is None and s.right is None:
+        if s == p:
+            self.root = s.right
+        elif s.left is None and s.right is None:
             self.__del_leaf(s, p)
         elif s.left is None or s.right is None:
-            if  s == p:
-                self.root = s.right
-            else:
-                self.__del_one_child(s, p)
+            self.__del_one_child(s, p)
         else:
             sr, pr = self.__find_min(s.right, s)
             s.data = sr.data
