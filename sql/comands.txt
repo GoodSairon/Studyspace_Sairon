@@ -1,0 +1,10 @@
+SELECT * FROM `employees`
+ORDER BY `FIRST_NAME`
+
+SELECT `FIRST_NAME`, `LAST_NAME`, `SALARY`, 0.15 * `SALARY` FROM `employees`
+
+SELECT SUM(`SALARY`) FROM `employees`
+
+SELECT MIN(`SALARY`), MAX(`SALARY`) FROM `employees`
+
+SELECT AVG(`SALARY`), COUNT(`SALARY`) FROM `employees`

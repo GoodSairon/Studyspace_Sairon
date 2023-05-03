@@ -1,0 +1,9 @@
+SELECT COUNT(DISTINCT `JOB_ID`) FROM `employees`
+
+SELECT AVG(`SALARY`) FROM `employees` WHERE `DEPARTMENT_ID` = 90
+
+SELECT `JOB_ID`, COUNT(`JOB_ID`) FROM `employees` GROUP BY `JOB_ID`
+
+SELECT `FIRST_NAME`, `LAST_NAME`, `DEPARTMENT_ID` FROM `employees`
+
+НЕТ ПРИВЯЗКИ ПО ГОРОДУ
