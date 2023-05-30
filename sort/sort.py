@@ -1,5 +1,6 @@
 import random as rand
 import string
+import timeit
 
 def gen_rand_string():
     letters = string.ascii_lowercase
@@ -22,3 +23,7 @@ str_list = [gen_rand_string() for i in range(1, 5000)]
 print(sort(int_list))
 print(sort(float_list))
 print(sort(str_list))
+
+print(timeit.timeit("sort(int_list)", globals = globals(), number = 1))
+print(timeit.timeit("sort(float_list)", globals = globals(), number = 1))
+print(timeit.timeit("sort(str_list)", globals = globals(), number = 1))
