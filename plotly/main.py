@@ -3,6 +3,9 @@ import pandas as pd
 import plotly as pl
 import plotly.express as px
 import plotly.graph_objs as pgo
+import seaborn as sns
+import matplotlib.pyplot as plt
+import sweetviz as sw
 
 data = {
     'Місто': ['Київ', 'Харків', 'Одеса', 'Дніпро', 'Донецьк', 'Запоріжжя', 'Львів', 'Кривий Ріг', 'Миколаїв', 'Маріуполь', 'Вінниця', 'Херсон', 'Полтава', 'Чернігів', 'Черкаси', 'Житомир', 'Івано-Франківськ', 'Кам\'янське', 'Кропивницький', 'Луцьк'],
@@ -16,12 +19,19 @@ df = pd.DataFrame(data)
 
 fig1 = pgo.Scatter(x=sorted(df['Населення']), y=sorted(df['Площа']))
 fig2 = pgo.Scatter(x=sorted(df['Середній дохід']), y=sorted(df['Населення']))
-
 fig = make_subplots(rows=1, cols=2)
 
 fig.add_trace(fig1, row=1, col=1)
 fig.add_trace(fig2, row=1, col=2)
-
 fig.show()
 
-print(df)
+plt.figure(figsize=(8, 6))
+sns.heatmap(df[['Населення', 'Середній дохід', 'Площа']].corr(), annot=True)
+plt.show()
+
+df.to_excel('df.xlsx', index=False)
+df = pd.read_excel('df.xlsx')
+
+report = sw.analyze(df)
+report.show_html()
+
